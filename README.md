@@ -8,6 +8,10 @@ A simple Spring Boot REST API for booking car inspection (ΚΤΕΟ) appointments
 - GET `/api/appointments?date=YYYY-MM-DD` - List appointments by date
 - GET `/api/appointments/{id}` - Get appointment by id
 
+## Postman Collection
+
+import `./postman/KTEO-Booking.postman_collection.json` into Postman to test the API.
+
 ## H2 Console
 
 Visit [http://localhost:8080/h2-console](http://localhost:8080/h2-console)  
