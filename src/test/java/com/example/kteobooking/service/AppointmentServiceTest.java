@@ -25,7 +25,7 @@ class AppointmentServiceTest {
     }
 
     @Test
-    void testIsServiceNotRequired() {
+    void testIsServiceRequired() {
         AppointmentService service = new AppointmentService(null); // Mock repository not needed for this test
 
         // Manufacturing year 2 or more years from today
