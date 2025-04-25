@@ -23,6 +23,9 @@ public class AppointmentService {
     if (!this.isPlateValid(appointment.getCarPlate())) {
       throw new RuntimeException("Invalid car plate.");
     }
+    if (!this.isServiceRequired(appointment.getManufacturingYear())) {
+      throw new RuntimeException("Service is not required.");
+    }
     appointment.setStatus("PENDING");
     return repository.save(appointment);
   }
@@ -39,6 +42,11 @@ public class AppointmentService {
 
   public boolean isPlateValid(String plate) {
     return plate != null && plate.matches("^[A-Z]{3}\\d{4}$");
+  }
+
+  public boolean isServiceRequired(int manufacturingYear) {
+    int currentYear = LocalDate.now().getYear();
+    return (currentYear - manufacturingYear) > 2;
   }
 
 }
