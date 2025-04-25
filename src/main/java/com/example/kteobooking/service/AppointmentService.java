@@ -20,6 +20,9 @@ public class AppointmentService {
         appointment.getCarPlate(), appointment.getAppointmentDate())) {
       throw new RuntimeException("Appointment already exists for this car and date.");
     }
+    if (!this.isServiceRequired(appointment.getManufacturingYear())) {
+      throw new RuntimeException("Service is not required.");
+    }
     appointment.setStatus("PENDING");
     return repository.save(appointment);
   }
