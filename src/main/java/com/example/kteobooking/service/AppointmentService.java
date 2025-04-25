@@ -20,12 +20,6 @@ public class AppointmentService {
         appointment.getCarPlate(), appointment.getAppointmentDate())) {
       throw new RuntimeException("Appointment already exists for this car and date.");
     }
-    if (!this.isPlateValid(appointment.getCarPlate())) {
-      throw new RuntimeException("Invalid car plate.");
-    }
-    if (!this.isServiceRequired(appointment.getManufacturingYear())) {
-      throw new RuntimeException("Service is not required.");
-    }
     appointment.setStatus("PENDING");
     return repository.save(appointment);
   }
@@ -40,26 +34,9 @@ public class AppointmentService {
     return repository.findById(id).orElseThrow(() -> new RuntimeException("Not found"));
   }
 
-  /**
-   * Validate the car plate format.
-   * The format should be 3 uppercase letters followed by 4 digits (e.g., ABC1234).
-   *
-   * @param plate The car plate to validate.
-   * @return true if valid, false otherwise.
-   */
-  public boolean isPlateValid(String plate) {
-    return plate != null && plate.matches("^[A-Z]{3}\\d{4}$");
-  }
-
-  /**
-   * Check if the car service is required based on the manufacturing year.
-   *
-   * @param manufacturingYear The year the car was manufactured.
-   * @return true if service is required, false otherwise.
-   */
   public boolean isServiceRequired(int manufacturingYear) {
     int currentYear = LocalDate.now().getYear();
-    return (currentYear - manufacturingYear) > 2;
+    return (currentYear - manufacturingYear) > 3;
   }
 
 }
