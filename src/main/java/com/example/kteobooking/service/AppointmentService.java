@@ -20,6 +20,9 @@ public class AppointmentService {
         appointment.getCarPlate(), appointment.getAppointmentDate())) {
       throw new RuntimeException("Appointment already exists for this car and date.");
     }
+    if (!this.isPlateValid(appointment.getCarPlate())) {
+      throw new RuntimeException("Invalid car plate.");
+    }
     appointment.setStatus("PENDING");
     return repository.save(appointment);
   }
@@ -33,4 +36,9 @@ public class AppointmentService {
   public Appointment getAppointment(Long id) {
     return repository.findById(id).orElseThrow(() -> new RuntimeException("Not found"));
   }
+
+  public boolean isPlateValid(String plate) {
+    return plate != null && plate.matches("^[A-Z]{3}\\d{4}$");
+  }
+
 }
