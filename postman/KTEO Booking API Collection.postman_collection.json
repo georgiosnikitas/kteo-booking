@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "6ae54e68-06da-46fa-9478-5ac28c5d2eb4",
+		"name": "KTEO Booking API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34572817",
+		"_collection_link": "https://scrap-api-team.postman.co/workspace/Scrap-API-Team-Workspace~c06b288d-523b-42aa-8384-df69fd0b2145/collection/34572817-6ae54e68-06da-46fa-9478-5ac28c5d2eb4?action=share&source=collection_link&creator=34572817"
+	},
+	"item": [
+		{
+			"name": "KteoGetAppointment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/appointments/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"appointments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KteoGetAppointmentsByDate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/appointments?date=2025-05-28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"appointments"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2025-05-28"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KteoSetAppointmentGeorge",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"ownerName\": \"George\",\n  \"carPlate\": \"IKO2406\",\n  \"carModel\": \"Audi\",\n  \"manufacturingYear\": 2007,\n  \"appointmentDate\": \"2025-05-14T14:30:00\",\n  \"status\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/appointments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KteoSetAppointmentKaterina",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 2,\n  \"ownerName\": \"Katerina\",\n  \"carPlate\": \"ZNE4083\",\n  \"carModel\": \"Mini\",\n  \"manufacturingYear\": 2022,\n  \"appointmentDate\": \"2025-05-14T15:00:00\",\n  \"status\": \"CONFIRMED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/appointments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
