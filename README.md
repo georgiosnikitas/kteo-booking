@@ -10,10 +10,9 @@ A simple Spring Boot REST API for booking car inspection (ΚΤΕΟ) appointments
 
 ## Postman Collection
 
-import `./postman/KTEO-Booking.postman_collection.json` into Postman to test the API.
+import `./postman/KTEO-Booking.postman_collection.json` in Postman to test API
 
 ## H2 Console
 
 Visit [http://localhost:8080/h2-console](http://localhost:8080/h2-console)  
 JDBC URL: `jdbc:h2:mem:kteo_db`
-
